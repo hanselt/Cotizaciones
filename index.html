@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Cotizaciones</title>
+
+  <!-- AdminLTE CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Contenido principal -->
+    <div class="content">
+      <section class="content-header">
+        <div class="container-fluid">
+          <h1 class="m-0 text-dark">Generador de Cotizaciones</h1>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Formulario de cotización -->
+           <div class="row">
+            <div class="col-md-12">
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Cotización <small>Taller Chapu</small></h3>
+                </div>
+                <form id="invoiceForm" class="form-horizontal">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="ruc">RUC del cliente:</label>                      
+                      <input type="text" class="form-control" id="ruc" name="ruc" required>                      
+                    </div>
+
+                    <div class="form-group">
+                      <label for="clientName">Nombre del cliente:</label>
+                      <input type="text" class="form-control" id="clientName" name="clientName" required>                      
+                    </div>
+
+                    <div class="form-group mb-0">
+                        <label class="custom">Detalle de Ítems.</label>
+                    </div>
+                    <div class="card-body table-responsive p-0">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <table id="itemsTable" class="table table-hover text-nowrap">
+                            <thead>
+                              <tr>
+                                <th>Concepto</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Precio Total</th>
+                                <th>Acción</th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
+                          </table>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="card-footer">
+                      <button type="button" id="addItem" class="btn btn-info">Agregar Ítem</button>
+                    </div>
+                    <!-- Resumen -->
+                    <div class="callout callout-info">
+                        <div class="form-group mb-0 text-center">
+                            <label class="custom text-right">Resumen</label>
+                        </div>
+                    
+                        <div class="form-group row">
+                            <label class="col-12 text-right">Subtotal:</label>
+                            <span class="col-12 text-right" id="subtotal">0.00</span>
+                        </div>
+                    
+                        <div class="form-group row">
+                            <label class="col-12 text-right">IGV (18%):</label>
+                            <span class="col-12 text-right" id="igv">0.00</span>
+                        </div>
+                    
+                        <div class="form-group row">
+                            <label class="col-12 text-right">Total:</label>
+                            <span class="col-12 text-right" id="total">0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                      <button type="button" id="generatePdf" class="btn btn-primary">Generar PDF</button>  
+                    </div>                    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- AdminLTE JS -->
+  <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+  <!-- PDF-lib JS -->
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+  <!-- Tu script personalizado -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
